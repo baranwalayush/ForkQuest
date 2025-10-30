@@ -5,4 +5,4 @@ Given two integers a and b, after the swap:
 
         a'=b, b'=a
 
-You must perform this only  bitwise operation.
+You must perform this only  using bitwise operation.
