@@ -1,0 +1,5 @@
+# time(HH:MM) | command
+09:00|echo "Good morning, $(whoami)!"
+09:05|python3 backup.py
+12:30|bash clear_temp.sh
+18:00|echo "Evening check completed." >> ~/daily_log.txt
