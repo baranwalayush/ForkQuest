@@ -56,5 +56,4 @@ ForkQuest/
 ## Getting Started
 Detailed instructions are available in CONTRIBUTING.md.
 
-
-> “Open source is not just about code — it’s about collaboration, learning, and community.”
+Happy hacking!
