@@ -82,7 +82,7 @@ function selectAnswer(selectedIndex) {
         } else {
             displayQuestion();
         }
-    }, 10);
+    }, 850);
 }
 
 // Show results screen
