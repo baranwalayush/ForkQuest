@@ -18,7 +18,7 @@ function setupEventListeners() {
 // Load questions from JSON file
 async function loadQuestions() {
     try{
-        const response = await fetch('questions.json');
+        const response = await fetch('/data/questions.json');
         questions = await response.json();
         console.log('Questions loaded successfully');
     }
