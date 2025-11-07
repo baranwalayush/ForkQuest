@@ -1,4 +1,4 @@
-# Implementing logistic regression form scratch
+# Implementing logistic regression from scratch
 
 import numpy as np
 
@@ -14,7 +14,7 @@ class LogisticRegressor:
         
         # Initialize weights and bias
         self.weights = np.zeros(n_features)
-        self.bias = 0
+        self.bias = 0.0
 
         # Gradient descent
         for _ in range(self.n_iterations):
@@ -32,8 +32,10 @@ class LogisticRegressor:
     def predict(self, X):
         linear_model = np.dot(X, self.weights) + self.bias
         y_predicted = self._sigmoid(linear_model)
-        y_predicted_cls = [1 if i > 0.5 else 0 for i in y_predicted]
-        return np.array(y_predicted_cls)
+        y_predicted_cls = (y_predicted > 0.5).astype(int)
+        return y_predicted_cls
 
     def _sigmoid(self, x):
-        return 1 / (1 + np.exp(x))
+        # To avoid overflow, clip input values
+        x = np.clip(x, -500, 500)
+        return 1 / (1 + np.exp(-x))
