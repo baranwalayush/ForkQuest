@@ -2,7 +2,24 @@
 using namespace std;
 
 void bfs(int start, vector<vector<int>>& adj, int n) {
-  
+  queue<int> q;
+  vector<bool> visit(n, false);
+
+  q.push(start);
+  visit[start] = true;
+
+  while(!q.empty()){
+    int u = q.front();
+    q.pop();
+    cout << u << " ";
+
+    for(int v : adj[u]){
+        if(!visit[v]) {
+            visit[v] = true;
+            q.push(v);
+        }
+    }
+  }
 }
 
 int main() {
@@ -14,7 +31,7 @@ int main() {
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
-        adj[v].push_back(v);
+        adj[v].push_back(u);
     }
 
     int start;
