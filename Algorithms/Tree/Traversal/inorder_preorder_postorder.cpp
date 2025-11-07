@@ -13,6 +13,10 @@ struct TreeNode {
 
 void inorder(TreeNode* root) {
     // inorder
+    if(!root) return;
+    inorder(root -> left);
+    if(root) cout << root -> val;
+    inorder(root -> right);
 }
 
 void preorder(TreeNode* root) {
