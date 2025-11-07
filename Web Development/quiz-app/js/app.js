@@ -25,6 +25,10 @@ async function loadQuestions() {
 // Start the quiz
 function startQuiz() {
     
+    if(questions.length==0){
+        alert("There are no questions here");
+        return;
+    }
     // Create new quiz instance
     currentQuiz = new Quiz(questions);
     
