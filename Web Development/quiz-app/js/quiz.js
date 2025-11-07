@@ -11,6 +11,12 @@ class Quiz {
 
     checkAnswer(selectedIndex) {
         // return true if correct, false otherwise
+        const question = this.questions[this.currentQuestionIndex];
+        if(selectedIndex==question["correctAnswer"]){
+            return true;
+        }else {
+            return false
+        }
     }
 
     nextQuestion() {
