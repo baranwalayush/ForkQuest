@@ -10,7 +10,7 @@ class Quiz {
     }
 
     checkAnswer(selectedIndex) {
-        // return true if correct, false otherwise
+        return selectedIndex==this.questions[this.currentQuestionIndex].correctAnswer;
     }
 
     nextQuestion() {
