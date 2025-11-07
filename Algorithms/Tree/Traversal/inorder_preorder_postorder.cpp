@@ -12,15 +12,30 @@ struct TreeNode {
 };
 
 void inorder(TreeNode* root) {
-    // inorder
+    if (root == nullptr) {
+        return;
+    }
+    inorder(root->left);
+    cout << root->val<<" ";
+    inorder(root->right);
 }
 
 void preorder(TreeNode* root) {
-    // preorder
+    if (root == nullptr) {
+        return;
+    }
+    cout << root->val << " ";
+    preorder(root->left);
+    preorder(root->right);
 }
 
 void postorder(TreeNode* root) {
-    // postorder
+    if (root == nullptr) {
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->val << " ";
 }
 
 int main() {

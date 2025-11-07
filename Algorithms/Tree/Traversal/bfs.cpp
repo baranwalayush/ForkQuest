@@ -8,11 +8,20 @@ struct TreeNode {
 
     TreeNode(): val(0), left(nullptr), right(nullptr) {}
     TreeNode(int value): val(value), left(nullptr), right(nullptr) {}
-    TreeNode(int value, TreeNode* l, TreeNode* r): val(value), left(l), right(r) {}
+    TreeNode(int value, TreeNode* l, TreeNode* r){
+        val = value, left = l, 
+        right = r;
+    }
+        
 };
 
 void bfs(TreeNode* root) {
-    // BFS functions
+    if (root->left == nullptr && root->right == nullptr) {
+        return;
+    }
+    if (root->left == nullptr) {}
+    bfs(root->left);
+    bfs(root->right);
 }
 
 int main() {
