@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 struct TreeNode {
@@ -17,6 +18,12 @@ void inorder(TreeNode* root) {
 
 void preorder(TreeNode* root) {
     // preorder
+    if(root==NULL){
+        return;
+    }
+    cout<<root->val;
+    preorder(root->left);
+    preorder(root->right);
 }
 
 void postorder(TreeNode* root) {
