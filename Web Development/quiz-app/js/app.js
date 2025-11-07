@@ -74,6 +74,15 @@ function selectAnswer(selectedIndex) {
     buttons.forEach(btn => btn.disabled = true);
     
     // Move to next question after a short delay
+    currq = currentQuiz.getCurrentQuestion();
+    const timeout = 0;
+    if(currq["difficulty"]==="easy"){
+        timeout = 1000
+    }else if(currq["difficulty"]==="medium"){
+        timeout = 1200
+    } else {
+        timeout = 1500
+    }
     setTimeout(() => {
         currentQuiz.nextQuestion();
         
@@ -82,7 +91,7 @@ function selectAnswer(selectedIndex) {
         } else {
             displayQuestion();
         }
-    }, 10);
+    }, timeout);
 }
 
 // Show results screen
