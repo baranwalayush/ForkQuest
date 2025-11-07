@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 
 
 // Node structure
@@ -28,7 +28,7 @@ public:
 
     // Insert at head
     void insertAtHead(int val) {
-        ListNode newNode = new ListNode(val);
+        ListNode* newNode = new ListNode(val);
         newNode->next = head;
         head = newNode;
     }
@@ -53,8 +53,27 @@ public:
 
     // Delete a node by value
     void deleteNode(int val) {
+        if (head == nullptr) return;
 
+        if (head->data == val) {
+            ListNode temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
 
+        ListNode* curr = head;
+        ListNode* prev = nullptr;
+
+        while (curr != nullptr && curr->data != val) {
+            prev = curr;
+            curr = curr->next;
+        }
+
+        if (curr == nullptr) return; // Value not found
+
+        prev->next = curr->next;
+        delete curr;
 
 
     }
@@ -64,9 +83,31 @@ public:
 
     // Delete a node by index
     int deleteNodebyIndex(int index){
+        if (head == nullptr) return -1;
 
+        ListNode* curr = head;
+        ListNode* prev = nullptr;
 
+        if(index == 0){
+            head = head->next;
+            int val = curr->data;
+            delete curr;
+            return val;
+        }
 
+        int count = 0;
+        while (curr != nullptr && count != index) {
+            prev = curr;
+            curr = curr->next;
+            count++;
+        }
+
+        if (curr == nullptr) return -1; // Index out of bounds
+
+        prev->next = curr->next;
+        int val = curr->data;
+        delete curr;
+        return val;
 
     }
 
@@ -74,7 +115,7 @@ public:
 
     // Display list elements
     void display() {
-        Node temp = head;
+        ListNode temp = head;
         while (temp != nullptr) {
             cout << temp->data << " ";
         }
