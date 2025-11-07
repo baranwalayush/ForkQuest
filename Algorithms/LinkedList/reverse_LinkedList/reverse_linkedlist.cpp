@@ -1,32 +1,33 @@
-#include<iosstrearn>
+#include<iostream>
+using namespace std;
 
 
 
 struct ListNode{
     int val;
-    ListNode next;
+    ListNode* next;
 
-    ListNode(): val(0), next(nullptr) {}
-    ListNode(int x): val(x), next(nullptr) {}
-    ListNode(int x, ListNode ptr): val(x), next(ptr) {}
+    ListNode(): val(0), next(NULL) {}
+    ListNode(int x): val(x), next(NULL) {}
+    ListNode(int x, ListNode* ptr): val(x), next(ptr) {}
 };
 
 
 
 class List{
-    ListNode head = nullptr;
+    ListNode* head = NULL;
 
 public:
 
 
     // Creates a linked list
     void insert(int x){
-        if(!head){
+        if(head == NULL){
             head = new ListNode(x);
         }
         else{
             ListNode* temp = head;
-            while(temp->next) temp = temp->next;
+            while(temp->next != NULL) temp = temp->next;
 
             temp->next = new ListNode(x);
         }
@@ -35,13 +36,17 @@ public:
 
     // reverse a linked list
     void reverse(){
-        ListNode* prev = nullptr;
+        ListNode* prev = NULL;
         ListNode* curr = head;
         ListNode* next = head->next;
 
-
-
-
+        while(curr != NULL){
+            next = curr->next;   
+            curr->next = prev;   
+            prev = curr;         
+            curr = next;  
+        }
+        head = prev;
     }
 
 
@@ -70,12 +75,12 @@ int main(){
     l.insert(4);
     l.insert(5);
 
-    cout << 'Original Linked List ->';
+    cout << "Original Linked List ->";
     l.display();
 
     // reverse the linked list
     l.reverse();
-    cout << 'Reversed Linked List ->';
+    cout << "Reversed Linked List ->";
     l.display();
 
     return 0;
