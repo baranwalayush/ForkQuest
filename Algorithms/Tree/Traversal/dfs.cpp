@@ -12,7 +12,10 @@ struct TreeNode {
 };
 
 void dfs(TreeNode* root) {
-    // DFS function
+    if (root == nullptr) return;
+    cout << root->val << " ";
+    dfs(root->left);
+    dfs(root->right);
 }
 
 int main() {
