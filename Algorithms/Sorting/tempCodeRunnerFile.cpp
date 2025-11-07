@@ -4,15 +4,9 @@ using namespace std;
 
 void selectionSort(vector<int>& arr) {
     
-    for(int i = 0;i<arr.size();i++){
-        int temp = i;
-        for(int j = i;j<arr.size();j++){
-            if(arr[temp]>arr[j]){
-                temp = j;
-            }
-        }
-        swap(arr[temp],arr[i]);
-    }
+    
+
+
 }
 
 int main() {
