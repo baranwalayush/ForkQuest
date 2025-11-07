@@ -13,6 +13,14 @@ struct TreeNode {
 
 void dfs(TreeNode* root) {
     // DFS function
+    // if(!root) return;
+    if(!root) return;
+    if(root){
+        cout << root -> val << " ";
+        dfs(root->left);
+        dfs(root->right);
+    }
+    // else root = root -> left;
 }
 
 int main() {
