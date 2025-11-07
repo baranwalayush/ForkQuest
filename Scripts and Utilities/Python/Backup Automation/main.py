@@ -1,71 +1,35 @@
-# Import the following modules
 import shutil
 from datetime import date
 import os
 import sys
 
-# When there is need, just change the directory
-os.chdir(sys.path[0])  
+os.chdir(sys.path[0])
 
-# Function for performing the
-# backup of the files and folders
 def take_backup(src_file_name, dst_file_name=None, src_dir='', dst_dir=''):
+    if not src_file_name:
+        return
+
+    today = date.today()
+    date_format = today.strftime("%d_%b_%Y_")
+    src_path = os.path.join(src_dir, src_file_name)
+
+    if not dst_file_name or dst_file_name.isspace():
+        dst_file_name = src_file_name
+
+    dst_path = os.path.join(dst_dir, date_format + dst_file_name)
+
     try:
-      
-          # Extract the today's date
-        today = date.today()  
-        date_format = today.strftime("%d_%b_%Y_")
+        shutil.copy2(src_path, dst_path)
+        print("Backup Successful")
+    except FileNotFoundError:
+        print("Source file or directory does not exist")
+    except PermissionError:
+        shutil.copytree(src_path, dst_path)
+        print("Backup Successful (Folder)")
+    except Exception as e:
+        print(f"Error: {e}")
 
-        # Make the source directory,
-        # where we wanna backup our files
-        src_dir = src_dir+src_file_name
-
-        # If user not enter any source file,
-        # then just give the error message...
-        if not src_file_name:
-            print("Please give atleast the Source File Name")
-            exit()
-
-        try:
-          
-            # If user provides all the inputs
-            if src_file_name and dst_file_name and src_dir and dst_dir:
-                src_dir = src_dir+src_file_name
-                dst_dir = dst_dir+dst_file_name
-                
-            # When User Enter Either 
-            # 'None' or empty String ('')
-            elif dst_file_name is None or not dst_file_name:
-                dst_file_name = src_file_name
-                dst_dir = dst_dir+date_format+dst_file_name
-                
-            # When user Enter an empty
-            # string with one or more spaces (' ')
-            elif dst_file_name.isspace():
-                dst_file_name = src_file_name
-                dst_dir = dst_dir+date_format+dst_file_name
-                
-            # When user Enter an a
-            # name for the backup copy
-            else:
-                dst_dir = dst_dir+date_format+dst_file_name
-
-            # Now, just copy the files
-            # from source to destination
-            shutil.copy2(src_dir, dst_dir)
-
-            print("Backup Successful!")
-        except FileNotFoundError:
-            print("File does not exists!,\
-            please give the complete path")
-    
-    # When we need to backup the folders only...
-    except PermissionError:  
-        dst_dir = dst_dir+date_format+dst_file_name
-        
-        # Copy the whole folder
-        # from source to destination
-        shutil.copytree(src_file_name, dst_dir)
-
-# Call the function
 take_backup("main.py")
+take_backup("main.py", dst_dir="C:/Users/rahlo/OneDrive/Fork/ForkQuest/Scripts and Utilities/Python/Backup Automation/Backups")
+take_backup("main.py", "backup_main.py", dst_dir="C:/Users/rahlo/OneDrive/Fork/ForkQuest/Scripts and Utilities/Python/Backup Automation/Backups")
+take_backup("Backup Automation", dst_dir="C:/Users/rahlo/OneDrive/Fork/ForkQuest/Scripts and Utilities/Python/Backup Automation/Backups")
