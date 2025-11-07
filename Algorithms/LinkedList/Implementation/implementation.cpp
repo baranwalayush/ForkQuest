@@ -1,15 +1,14 @@
-#include <iosstrearn>
-
-
+#include <bits/stdc++.h>
+using namespace std;
 
 // Node structure
 struct ListNode {
     int data;
-    ListNode next;
+    ListNode* next;
 
     ListNode(): data(0), next(nullptr) {}
     ListNode(int val): data(val), next(nullptr) {}
-    ListNode(int val, Node n): data(val), next(n) {}
+    ListNode(int val, ListNode* n): data(val), next(n) {}
 };
 
 
@@ -17,7 +16,7 @@ struct ListNode {
 // Linked List class
 class LinkedList {
 private:
-    ListNode head;
+    ListNode* head;
 
 public:
     LinkedList() {
@@ -28,7 +27,7 @@ public:
 
     // Insert at head
     void insertAtHead(int val) {
-        ListNode newNode = new ListNode(val);
+        ListNode* newNode = new ListNode(val);
         newNode->next = head;
         head = newNode;
     }
@@ -37,7 +36,7 @@ public:
 
     // Insert at tail
     void insertAtTail(int val) {
-        ListNode newNode = new ListNode(val);
+        ListNode* newNode = new ListNode(val);
         if (head == nullptr) {
             head = newNode;
             return;
@@ -65,7 +64,7 @@ public:
     // Delete a node by index
     int deleteNodebyIndex(int index){
 
-
+        
 
 
     }
