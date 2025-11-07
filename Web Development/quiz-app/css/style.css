@@ -34,3 +34,37 @@ button {
     color: white;
     border-radius: 5px;
 }
+
+#start-btn{
+    background-color: aqua;
+    /* transition-timing-function: ease-in-out; */
+    /* transition-duration: 2s; */
+    /* transition-delay: 0.5s; */
+}
+
+#start-btn:hover{
+    background-color: white;
+    transition-timing-function: ease-in-out;
+    transition-duration: 2s;
+    transition-delay: 0.5s;
+    border: 2px solid black;
+    box-shadow: #9fc2e7;
+    cursor: pointer;
+}
+
+#restart-btn{
+    background-color: aqua;
+    /* transition-timing-function: ease-in-out; */
+    /* transition-duration: 2s; */
+    /* transition-delay: 0.5s; */
+}
+
+#restart-btn:hover{
+    background-color: white;
+    transition-timing-function: ease-in-out;
+    transition-duration: 2s;
+    transition-delay: 0.5s;
+    border: 2px solid black;
+    box-shadow: #9fc2e7;
+    cursor: pointer;
+}
