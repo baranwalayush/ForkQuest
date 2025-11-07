@@ -23,7 +23,7 @@ async function loadQuestions() {
         console.log('Questions loaded successfully');
     }
     catch(err){
-        console.log(`There was an error: ${err}`)
+        console.log(`Unable to load questions due to : ${err}`)
     }
 }
 
