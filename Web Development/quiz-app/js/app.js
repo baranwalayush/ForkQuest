@@ -17,9 +17,14 @@ function setupEventListeners() {
 
 // Load questions from JSON file
 async function loadQuestions() {
-    const response = await fetch('questions.json');
-    questions = await response.json();
-    console.log('Questions loaded successfully');
+    try{
+        const response = await fetch('questions.json');
+        questions = await response.json();
+        console.log('Questions loaded successfully');
+    }
+    catch(err){
+        console.log(`There was an error: ${err}`)
+    }
 }
 
 // Start the quiz
