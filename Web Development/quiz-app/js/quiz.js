@@ -10,13 +10,9 @@ class Quiz {
     }
 
     checkAnswer(selectedIndex) {
-        // return true if correct, false otherwise
-        const question = this.questions[this.currentQuestionIndex];
-        if(selectedIndex==question["correctAnswer"]){
-            return true;
-        }else {
-            return false
-        }
+        let isCorrect=selectedIndex==this.questions[this.currentQuestionIndex].correctAnswer;
+        if(isCorrect){ this.score+=1; }
+        return isCorrect;
     }
 
     nextQuestion() {
