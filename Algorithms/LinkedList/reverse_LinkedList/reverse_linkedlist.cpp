@@ -1,20 +1,21 @@
-#include<iosstrearn>
+#include<iostream>
+using namespace std;
 
 
 
 struct ListNode{
     int val;
-    ListNode next;
+    ListNode* next;
 
     ListNode(): val(0), next(nullptr) {}
     ListNode(int x): val(x), next(nullptr) {}
-    ListNode(int x, ListNode ptr): val(x), next(ptr) {}
+    ListNode(int x, ListNode ptr): val(x), next(nullptr) {}
 };
 
 
 
 class List{
-    ListNode head = nullptr;
+    ListNode* head = nullptr;
 
 public:
 
