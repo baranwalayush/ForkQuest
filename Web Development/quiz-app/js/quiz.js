@@ -10,7 +10,9 @@ class Quiz {
     }
 
     checkAnswer(selectedIndex) {
-        // return true if correct, false otherwise
+        let isCorrect=selectedIndex==this.questions[this.currentQuestionIndex].correctAnswer;
+        if(isCorrect){ this.score+=1; }
+        return isCorrect;
     }
 
     nextQuestion() {
