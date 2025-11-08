@@ -29,6 +29,10 @@ async function loadQuestions() {
 // Start the quiz
 function startQuiz() {
     
+    if(questions.length==0){
+        alert("There are no questions here");
+        return;
+    }
     // Create new quiz instance
     currentQuiz = new Quiz(questions);
     
@@ -78,6 +82,15 @@ function selectAnswer(selectedIndex) {
     buttons.forEach(btn => btn.disabled = true);
     
     // Move to next question after a short delay
+    currq = currentQuiz.getCurrentQuestion();
+    const timeout = 0;
+    if(currq["difficulty"]==="easy"){
+        timeout = 1000
+    }else if(currq["difficulty"]==="medium"){
+        timeout = 1200
+    } else {
+        timeout = 1500
+    }
     setTimeout(() => {
         currentQuiz.nextQuestion();
         
@@ -86,7 +99,7 @@ function selectAnswer(selectedIndex) {
         } else {
             displayQuestion();
         }
-    }, 10);
+    }, timeout);
 }
 
 // Show results screen
@@ -107,6 +120,7 @@ function showResults() {
 // Restart quiz
 function restartQuiz() {
     // Hide results screen and show welcome screen
+
     if(confirm("Are you sure you want to restart?")){
         document.getElementById('results-screen').classList.add('hidden');
         document.getElementById('welcome-screen').classList.remove('hidden');
@@ -115,3 +129,10 @@ function restartQuiz() {
         currentQuiz = null;
     }
 }
+    document.getElementById('results-screen').classList.add('hidden');
+    document.getElementById('welcome-screen').classList.remove('hidden');
+    
+    // Reset quiz
+    currentQuiz = null;
+}
+
