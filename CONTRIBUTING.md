@@ -5,8 +5,8 @@ We appreciate your interest in contributing to this repository. We welcome contr
 ### Code Contributions
 
 1. Fork the repository
-2. Clone it locally
-- ```git clone https://github.com/baranwalayush/ForkQuest.git```
+2. Clone the forked repository locally
+- ```git clone https://github.com/your-user-name/ForkQuest.git```
 3. Create a new branch for your change:
 - ```git checkout -b feature/feature-name```
 4. Make your changes and commit with a clear message:
