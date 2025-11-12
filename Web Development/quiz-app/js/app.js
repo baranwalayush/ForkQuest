@@ -3,6 +3,10 @@
 let currentQuiz;
 let questions = [];
 
+// let restart_btn = document.querySelector("#restart-btn");
+// restart_btn.addEventListener("click",() => {
+    
+// })
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadQuestions();
@@ -17,7 +21,7 @@ function setupEventListeners() {
 
 // Load questions from JSON file
 async function loadQuestions() {
-    const response = await fetch('questions.json');
+    const response = await fetch('data/questions.json');
     questions = await response.json();
     console.log('Questions loaded successfully');
 }
@@ -116,9 +120,19 @@ function showResults() {
 // Restart quiz
 function restartQuiz() {
     // Hide results screen and show welcome screen
+
+    if(confirm("Are you sure you want to restart?")){
+        document.getElementById('results-screen').classList.add('hidden');
+        document.getElementById('welcome-screen').classList.remove('hidden');
+        
+        // Reset quiz
+        currentQuiz = null;
+    }
+}
     document.getElementById('results-screen').classList.add('hidden');
     document.getElementById('welcome-screen').classList.remove('hidden');
     
     // Reset quiz
     currentQuiz = null;
 }
+
