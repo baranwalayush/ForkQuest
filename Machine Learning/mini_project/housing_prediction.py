@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
+from xgboost import XGBRegressor
 
 # Load and extract data
 def load_data(file_path: str) -> pd.DataFrame:
@@ -109,6 +110,15 @@ def train_model_SupportVectorMachine(X_train: pd.DataFrame, y_train: pd.Series) 
     
     return model
 
+def train_model_XGBoost(X_train: pd.DataFrame, y_train: pd.Series) -> XGBRegressor:
+    '''
+    Train a XGBoost Classifier on the training data.
+    '''
+    model = XGBRegressor()
+    model.fit(X_train, y_train)
+    
+    return model
+
 # Evaluate model
 def evaluate_model(model, X_test: pd.DataFrame, y_test: pd.Series) -> float:
     '''
@@ -171,7 +181,8 @@ if __name__ == "__main__":
         'RandomForest': train_model_RandomForest(X_train, y_train),
         'DecisionTree': train_model_DecisionTree(X_train, y_train),
         'LinearRegression': train_model_LinearRegression(X_train, y_train),
-        'SupportVectorMachine': train_model_SupportVectorMachine(X_train, y_train)
+        'SupportVectorMachine': train_model_SupportVectorMachine(X_train, y_train),
+        'XGBoost': train_model_XGBoost(X_train, y_train)
     }
     
     # Select best model
