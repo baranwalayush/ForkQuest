@@ -36,4 +36,4 @@ class LogisticRegressor:
         return np.array(y_predicted_cls)
 
     def _sigmoid(self, x):
-        return 1 / (1 + np.exp(x))
+        return 1 / (1 + np.exp(-x))
