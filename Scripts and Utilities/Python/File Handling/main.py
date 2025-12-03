@@ -2,6 +2,7 @@
 # take input from terminal for a folder path,
 import os
 import sys
+import shutil
 
 supported_formats = ['jpg', 'pdf', 'xlsx', 'mp4', 'mp3', 'jp2', 'png', 'js', 'go', 'sh']
 
@@ -39,7 +40,7 @@ def main():
         folder_path = input("Please enter the folder path: ")
     
     list_files_in_directory(folder_path)
-    organize_files_by_extension(folder_path1)
+    organize_files_by_extension(folder_path)
     list_files_in_directory(folder_path)
 
 
