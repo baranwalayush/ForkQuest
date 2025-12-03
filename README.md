@@ -1,7 +1,8 @@
 # ForkQuest — The Open Source Challenge 
 
 Welcome to **ForkQuest**, the open-source themed competition organized by the **Co.L.D, School of Engineering, JNU**, as part of **EngQuest 4.0**. <br>
-Since now, that the competition is over, we are open to contribution from anybody looking to learn or start his/her open-source journey. Check the [CONTRIBUTING.md](CONTRIBUTING.md) for more details regarding the contribution guidelines.
+
+Since now, that the competition is over, **we are open to contribution from anybody looking to learn or start his/her open-source journey**. Check the [CONTRIBUTING.md](CONTRIBUTING.md) for more details regarding the contribution guidelines.
 
 This repository serves as the **central project hub** for all participants.  
 Each directory represents a different **domain track** with pre-written codebases, small projects, or scripts — all open for improvement and contribution!
