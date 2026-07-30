@@ -1,2 +1,13 @@
 ideas.txt
-.vscode
+
+.vscode/
+.DS_Store
+
+# executables
+*.exe
+*.out
+*.app
+
+output/
+
+.venv
