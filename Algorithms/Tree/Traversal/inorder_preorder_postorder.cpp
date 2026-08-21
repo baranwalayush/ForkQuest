@@ -14,6 +14,12 @@ struct TreeNode {
 
 void inorder(TreeNode* root) {
     // inorder
+    if(root == NULL){
+        return;
+    }
+    inorder(root->left);
+    cout<<root->val;
+    inorder(root->right);
 }
 
 void preorder(TreeNode* root) {
@@ -28,6 +34,13 @@ void preorder(TreeNode* root) {
 
 void postorder(TreeNode* root) {
     // postorder
+    if(root == NULL){
+        return ;
+    }
+    
+    postorder(root->left);
+    postorder(root->right );
+    cout<<root->val;
 }
 
 int main() {
